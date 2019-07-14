@@ -25,4 +25,7 @@ sleep 3
 docker-compose up $FLAGS command
 sleep 3
 
-docker-compose up $FLAGS device-virtual
+#docker-compose up $FLAGS device-virtual
+#sleep 3
+
+docker-compose up $FLAGS device-random
