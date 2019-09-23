@@ -134,6 +134,8 @@ services:
         - 'KONG_DATABASE=postgres'
         - 'KONG_PG_HOST=kong-db'
     command: "kong migrations bootstrap"
+    extra_hosts:
+        - 'kong-db:127.0.0.1'
 
   kong:
     image: "kong:1.0.3"
@@ -157,6 +159,9 @@ services:
         - kong-db
     extra_hosts:
       - "kong-db:127.0.0.1"
+      - "edgex-core-data:127.0.0.1"
+      - "edgex-core-metadata:127.0.0.1"
+      - "edgex-core-command:127.0.0.1"
 
   edgex-proxy:
     image: "edgexfoundry/docker-edgex-proxy-go:1.0.0"
@@ -296,6 +301,7 @@ services:
     extra_hosts:
       - "edgex-core-consul:127.0.0.1"
       - "edgex-support-logging:127.0.0.1"
+      - "edgex-core-metadata:127.0.0.1"
 
   scheduler:
     image: edgexfoundry/docker-support-scheduler-go:1.0.1
