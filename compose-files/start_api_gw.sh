@@ -13,7 +13,7 @@ docker-compose up $FLAGS kong
 # start up KONG the major component of API gateway
 sleep 3
 
-#docker-compose up $FLAGS edgex-proxy
+docker-compose up $FLAGS edgex-proxy
 # initialize KONG, configure proxy routes, apply certificates to routes, and enable various authentication/ACL features.o
 sleep 3
 
